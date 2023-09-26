@@ -1,4 +1,5 @@
 import 'package:entrainement_lecture/commons.dart';
+import 'package:entrainement_lecture/screens/alphabet_menu.dart';
 import 'package:entrainement_lecture/widgets/menu_button.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,11 @@ class ListenMenuScreen extends StatelessWidget {
           MenuButtonWidget(
             caption: 'Alphabet',
             soundAssetPath: 'assets/sounds/alphabet.mp3',
-            onNavigation: () {},
+            onNavigation: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (ctx2) {
+                return const AlphabetMenuScreen();
+              }),);
+            },
           ),
           const SizedBox(
             height: menusVerticalGap,
