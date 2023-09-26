@@ -1,3 +1,4 @@
+import 'package:entrainement_lecture/commons.dart';
 import 'package:entrainement_lecture/widgets/beautiful_button.dart';
 import 'package:flutter/material.dart';
 import 'package:minisound/minisound.dart';
@@ -47,7 +48,7 @@ class _MenuButtonWidgetState extends State<MenuButtonWidget> {
       children: [
         BeautifulButtonWidget(caption: widget.caption, action: widget.onNavigation),
         const SizedBox(
-          width: 20.0,
+          width: menuButtonHorizontalGap,
         ),
         IconButton(
           onPressed: _playSound,

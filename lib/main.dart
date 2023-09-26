@@ -1,3 +1,4 @@
+import 'package:entrainement_lecture/commons.dart';
 import 'package:entrainement_lecture/screens/listen_menu.dart';
 import 'package:entrainement_lecture/widgets/menu_button.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             const SizedBox(
-              height: 10.0,
+              height: menusVerticalGap,
             ),
             MenuButtonWidget(
               caption: 'Trouver',

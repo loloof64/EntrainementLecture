@@ -1,3 +1,4 @@
+import 'package:entrainement_lecture/commons.dart';
 import 'package:flutter/material.dart';
 
 class BeautifulButtonWidget extends StatelessWidget {
@@ -16,7 +17,7 @@ class BeautifulButtonWidget extends StatelessWidget {
       onPressed: action,
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(beautifulButtonRadius),
         ),
       ),
       child: Text(caption),
