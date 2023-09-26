@@ -1,6 +1,6 @@
-import 'package:entrainement_lecture/widgets/beautiful_button.dart';
+import 'package:entrainement_lecture/screens/listen_menu.dart';
+import 'package:entrainement_lecture/widgets/menu_button.dart';
 import 'package:flutter/material.dart';
-import 'package:minisound/minisound.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,7 +9,7 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
- @override
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Entrainement à la lecture',
@@ -30,26 +30,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-  final _soundEngine = Engine();
-
-  @override
-  void initState() {
-    _initSoundEngine();
-    super.initState();
-  }
-
-  void _initSoundEngine() async {
-    await _soundEngine.init();
-  }
-
-
-  void _playSound(String assetSoundPath) async {
-    final sound = await _soundEngine.loadSoundAsset(assetSoundPath);
-    await _soundEngine.start();
-    sound.play();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,15 +39,26 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            BeautifulButtonWidget(
+            MenuButtonWidget(
               caption: 'Ecouter',
-              action: () => _playSound('assets/sounds/ecouter.mp3'),
+              soundAssetPath: 'assets/sounds/ecouter.mp3',
+              onNavigation: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(builder: (ctx2) {
+                    return const ListenMenuScreen();
+                  }),
+                );
+              },
             ),
-            BeautifulButtonWidget(
+            const SizedBox(
+              height: 10.0,
+            ),
+            MenuButtonWidget(
               caption: 'Trouver',
-              action: () => _playSound('assets/sounds/trouver.mp3'),
+              soundAssetPath: 'assets/sounds/trouver.mp3',
+              onNavigation: () {},
             ),
           ],
         ),
