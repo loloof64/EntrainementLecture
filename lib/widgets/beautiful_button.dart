@@ -1,4 +1,4 @@
-import 'package:entrainement_lecture/commons.dart';
+import 'package:entrainement_lecture/misc/commons.dart';
 import 'package:flutter/material.dart';
 
 class BeautifulButtonWidget extends StatelessWidget {

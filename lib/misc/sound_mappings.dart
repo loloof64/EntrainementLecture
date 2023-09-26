@@ -1,0 +1,30 @@
+const voyels = <String, String>{
+  'a': 'assets/sounds/lettre_a.mp3',
+  'e': 'assets/sounds/lettre_e.mp3',
+  'i': 'assets/sounds/lettre_i.mp3',
+  'o': 'assets/sounds/lettre_o.mp3',
+  'u': 'assets/sounds/lettre_u.mp3',
+  'y': 'assets/sounds/lettre_y.mp3',
+};
+
+const consons = <String, String>{
+  'b': 'assets/sounds/lettre_b.mp3',
+  'c': 'assets/sounds/lettre_c.mp3',
+  'd': 'assets/sounds/lettre_d.mp3',
+  'f': 'assets/sounds/lettre_f.mp3',
+  'g': 'assets/sounds/lettre_g.mp3',
+  'h': 'assets/sounds/lettre_h.mp3',
+  'j': 'assets/sounds/lettre_j.mp3',
+  'k': 'assets/sounds/lettre_k.mp3',
+  'l': 'assets/sounds/lettre_l.mp3',
+  'm': 'assets/sounds/lettre_m.mp3',
+  'n': 'assets/sounds/lettre_n.mp3',
+  'p': 'assets/sounds/lettre_p.mp3',
+  'q': 'assets/sounds/lettre_q.mp3',
+  'r': 'assets/sounds/lettre_r.mp3',
+  's': 'assets/sounds/lettre_s.mp3',
+  't': 'assets/sounds/lettre_t.mp3',
+  'v': 'assets/sounds/lettre_v.mp3',
+  'x': 'assets/sounds/lettre_x.mp3',
+  'z': 'assets/sounds/lettre_z.mp3',
+};
