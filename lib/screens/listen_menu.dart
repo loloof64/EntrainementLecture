@@ -16,6 +16,14 @@ class ListenMenuScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           MenuButtonWidget(
+            caption: 'Alphabet',
+            soundAssetPath: 'assets/sounds/alphabet.mp3',
+            onNavigation: () {},
+          ),
+          const SizedBox(
+            height: menusVerticalGap,
+          ),
+          MenuButtonWidget(
             caption: 'Sons',
             soundAssetPath: 'assets/sounds/son.mp3',
             onNavigation: () {},
