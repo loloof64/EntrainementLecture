@@ -1,6 +1,6 @@
+import 'package:entrainement_lecture/misc/sound_engine.dart';
 import 'package:entrainement_lecture/widgets/beautiful_button.dart';
 import 'package:flutter/material.dart';
-import 'package:minisound/minisound.dart';
 
 class ListeningButtonWidget extends StatefulWidget {
   final String caption;
@@ -16,22 +16,8 @@ class ListeningButtonWidget extends StatefulWidget {
 }
 
 class _ListeningButtonWidgetState extends State<ListeningButtonWidget> {
-  final _soundEngine = Engine();
-
-  @override
-  void initState() {
-    _initSoundEngine();
-    super.initState();
-  }
-
-  void _initSoundEngine() async {
-    await _soundEngine.init();
-  }
-
   void _playSound() async {
-    final sound = await _soundEngine.loadSoundAsset(widget.soundAssetPath);
-    await _soundEngine.start();
-    sound.play();
+    SoundEngine.instance.playSound(widget.soundAssetPath);
   }
 
   @override

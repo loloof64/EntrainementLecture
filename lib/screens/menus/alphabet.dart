@@ -1,4 +1,5 @@
 import 'package:entrainement_lecture/misc/commons.dart';
+import 'package:entrainement_lecture/screens/listening/consons.dart';
 import 'package:entrainement_lecture/screens/listening/voyels.dart';
 import 'package:entrainement_lecture/widgets/menu_button.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,12 @@ class AlphabetMenuScreen extends StatelessWidget {
           MenuButtonWidget(
             caption: 'Consonnes',
             soundAssetPath: 'assets/sounds/consonne.mp3',
-            onNavigation: () {},
+            onNavigation: () {
+              goToPage(
+                const ConsonsListeningScreen(),
+                context,
+              );
+            },
           ),
         ],
       ),

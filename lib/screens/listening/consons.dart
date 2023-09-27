@@ -3,18 +3,18 @@ import 'package:entrainement_lecture/misc/sound_mappings.dart';
 import 'package:entrainement_lecture/widgets/listening_button.dart';
 import 'package:flutter/material.dart';
 
-class VoyelsListeningScreen extends StatelessWidget {
-  const VoyelsListeningScreen({super.key});
+class ConsonsListeningScreen extends StatelessWidget {
+  const ConsonsListeningScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     var children = <Widget>[];
 
-    for (var letter in voyels.keys) {
+    for (var letter in consons.keys) {
       children.add(
         ListeningButtonWidget(
           caption: letter,
-          soundAssetPath: voyels[letter]!,
+          soundAssetPath: consons[letter]!,
         ),
       );
     }
@@ -22,7 +22,7 @@ class VoyelsListeningScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Voyelles'),
+        title: const Text('Consonnes'),
       ),
       body: Center(
         child: GridView.count(
