@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:minisound/minisound.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-
 class MenuButtonWidget extends StatefulWidget {
+  final bool horizontalLayout;
   final String caption;
   final String soundAssetPath;
   final void Function() onNavigation;
 
-
   const MenuButtonWidget({
     super.key,
+    this.horizontalLayout = true,
     required this.caption,
     required this.soundAssetPath,
     required this.onNavigation,
@@ -43,18 +43,28 @@ class _MenuButtonWidgetState extends State<MenuButtonWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        BeautifulButtonWidget(caption: widget.caption, action: widget.onNavigation),
-        const SizedBox(
-          width: menuButtonHorizontalGap,
+    final children = <Widget>[
+      BeautifulButtonWidget(
+          caption: widget.caption, action: widget.onNavigation),
+      const SizedBox(
+        width: menuButtonHorizontalGap,
+      ),
+      IconButton(
+        onPressed: _playSound,
+        icon: const FaIcon(
+          FontAwesomeIcons.circlePlay,
         ),
-        IconButton(
-          onPressed: _playSound,
-          icon: const FaIcon(FontAwesomeIcons.circlePlay,),
-        ),
-      ],
-    );
+      ),
+    ];
+
+    return widget.horizontalLayout
+        ? Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: children,
+          )
+        : Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: children,
+          );
   }
 }
