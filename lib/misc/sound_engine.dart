@@ -1,10 +1,9 @@
 import 'package:minisound/minisound.dart';
 
-class SoundEngine {
-  static final instance = SoundEngine._();
+class _SoundEngine {
   final _engine = Engine();
 
-  SoundEngine._(){
+  _SoundEngine(){
     _initEngine();
   } 
 
@@ -20,3 +19,5 @@ class SoundEngine {
     await _engine.init();
   }
 }
+
+final soundEngine = _SoundEngine();

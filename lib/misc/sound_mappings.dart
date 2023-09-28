@@ -106,10 +106,10 @@ const simpleSounds = <String, Map<String, dynamic>>{
     }
   },
   'f': {
-    'base_sound': 'assets/sounds/f.mp3',
+    'base_sound': 'assets/sounds/fe.mp3',
     'combinations': {
       'a': 'assets/sounds/fa.mp3',
-      'e': 'assets/sounds/f.mp3',
+      'e': 'assets/sounds/fe.mp3',
       'i': 'assets/sounds/fi.mp3',
       'o': 'assets/sounds/fo.mp3',
       'u': 'assets/sounds/fu.mp3',

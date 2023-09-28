@@ -17,7 +17,7 @@ class ListeningButtonWidget extends StatefulWidget {
 
 class _ListeningButtonWidgetState extends State<ListeningButtonWidget> {
   void _playSound() async {
-    SoundEngine.instance.playSound(widget.soundAssetPath);
+    soundEngine.playSound(widget.soundAssetPath);
   }
 
   @override

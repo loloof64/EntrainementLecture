@@ -1,7 +1,7 @@
 import 'package:entrainement_lecture/misc/commons.dart';
+import 'package:entrainement_lecture/misc/sound_engine.dart';
 import 'package:entrainement_lecture/widgets/beautiful_button.dart';
 import 'package:flutter/material.dart';
-import 'package:minisound/minisound.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MenuButtonWidget extends StatefulWidget {
@@ -23,23 +23,6 @@ class MenuButtonWidget extends StatefulWidget {
 }
 
 class _MenuButtonWidgetState extends State<MenuButtonWidget> {
-  final _soundEngine = Engine();
-
-  @override
-  void initState() {
-    _initSoundEngine();
-    super.initState();
-  }
-
-  void _initSoundEngine() async {
-    await _soundEngine.init();
-  }
-
-  void _playSound() async {
-    final sound = await _soundEngine.loadSoundAsset(widget.soundAssetPath);
-    await _soundEngine.start();
-    sound.play();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +33,7 @@ class _MenuButtonWidgetState extends State<MenuButtonWidget> {
         width: menuButtonHorizontalGap,
       ),
       IconButton(
-        onPressed: _playSound,
+        onPressed: () => soundEngine.playSound(widget.soundAssetPath),
         icon: const FaIcon(
           FontAwesomeIcons.circlePlay,
         ),
