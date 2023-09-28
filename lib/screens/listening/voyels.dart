@@ -25,11 +25,9 @@ class VoyelsListeningScreen extends StatelessWidget {
         title: const Text('Voyelles'),
       ),
       body: Center(
-        child: GridView.count(
-          shrinkWrap: true,
-          crossAxisCount: 4,
-          mainAxisSpacing: listeningButtonsGridHorizontalGap,
-          crossAxisSpacing: listeningButtonsGridVerticalGap,
+        child: Wrap(
+          runSpacing: listeningButtonsGridVerticalGap,
+          spacing: listeningButtonsGridHorizontalGap,
           children: children,
         ),
       ),

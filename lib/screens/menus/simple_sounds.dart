@@ -34,11 +34,9 @@ class SimpleSoundsMenuScreen extends StatelessWidget {
         title: const Text('Sons simples'),
       ),
       body: Center(
-        child: GridView.count(
-          shrinkWrap: true,
-          crossAxisCount: 4,
-          mainAxisSpacing: listeningButtonsGridHorizontalGap,
-          crossAxisSpacing: listeningButtonsGridVerticalGap,
+        child: Wrap(
+          runSpacing: listeningButtonsGridVerticalGap,
+          spacing: listeningButtonsGridHorizontalGap,
           children: children,
         ),
       ),

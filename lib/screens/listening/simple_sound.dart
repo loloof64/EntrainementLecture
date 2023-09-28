@@ -32,11 +32,9 @@ class SimpleSoundListeningScreen extends StatelessWidget {
         title: Text('Son simple $soundElement'),
       ),
       body: Center(
-        child: GridView.count(
-          shrinkWrap: true,
-          crossAxisCount: 4,
-          mainAxisSpacing: listeningButtonsGridHorizontalGap,
-          crossAxisSpacing: listeningButtonsGridVerticalGap,
+        child: Wrap(
+          runSpacing: listeningButtonsGridVerticalGap,
+          spacing: listeningButtonsGridHorizontalGap,
           children: children,
         ),
       ),
