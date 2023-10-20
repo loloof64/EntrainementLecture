@@ -31,7 +31,7 @@ class SimpleSoundsMenuScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Sons simples'),
+        title: const Text('Ecouter les sons simples'),
       ),
       body: Center(
         child: Wrap(

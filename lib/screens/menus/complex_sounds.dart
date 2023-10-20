@@ -31,7 +31,7 @@ class ComplexSoundsMenuScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Sons complexes'),
+        title: const Text('Ecouter les sons complexes'),
       ),
       body: Center(
         child: SingleChildScrollView(

@@ -12,7 +12,7 @@ class AlphabetMenuScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Alphabet'),
+        title: const Text('Ecouter l\'alphabet'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

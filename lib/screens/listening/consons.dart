@@ -22,7 +22,7 @@ class ConsonsListeningScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Consonnes'),
+        title: const Text('Ecouter les consonnes'),
       ),
       body: Center(
         child: Wrap(

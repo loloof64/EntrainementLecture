@@ -22,7 +22,7 @@ class WordsListeningScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Mots'),
+        title: const Text('Ecouter les mots'),
       ),
       body: Center(
         child: SingleChildScrollView(

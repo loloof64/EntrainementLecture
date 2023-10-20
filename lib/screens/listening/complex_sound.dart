@@ -37,7 +37,7 @@ class ComplexSoundListeningScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('Son complexe $soundElement'),
+        title: Text('Ecouter le son complexe $soundElement'),
       ),
       body: Center(
         child: Wrap(
