@@ -1,4 +1,5 @@
 import 'package:entrainement_lecture/misc/commons.dart';
+import 'package:entrainement_lecture/screens/menus/complex_sounds.dart';
 import 'package:entrainement_lecture/screens/menus/simple_sounds.dart';
 import 'package:entrainement_lecture/widgets/menu_button.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,9 @@ class SoundsMenuScreen extends StatelessWidget {
           MenuButtonWidget(
             caption: 'Complexes',
             soundAssetPath: 'assets/sounds/complexe.mp3',
-            onNavigation: () {},
+            onNavigation: () {
+              goToPage(const ComplexSoundsMenuScreen(), context);
+            },
           ),
         ],
       ),
