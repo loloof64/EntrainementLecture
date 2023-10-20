@@ -1,4 +1,5 @@
 import 'package:entrainement_lecture/misc/commons.dart';
+import 'package:entrainement_lecture/screens/listening/words.dart';
 import 'package:entrainement_lecture/screens/menus/alphabet.dart';
 import 'package:entrainement_lecture/screens/menus/sounds.dart';
 import 'package:entrainement_lecture/widgets/menu_button.dart';
@@ -40,7 +41,9 @@ class ListenMenuScreen extends StatelessWidget {
           MenuButtonWidget(
             caption: 'Mots',
             soundAssetPath: 'assets/sounds/mot.mp3',
-            onNavigation: () {},
+            onNavigation: () {
+              goToPage(const WordsListeningScreen(), context);
+            },
           ),
         ],
       ),
