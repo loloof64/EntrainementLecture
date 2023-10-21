@@ -166,7 +166,7 @@ const simpleSounds = <String, Map<String, dynamic>>{
           'i': 'assets/sounds/mi.mp3',
           'o': 'assets/sounds/mo.mp3',
           'u': 'assets/sounds/mu.mp3',
-          'y': 'assets/sounds/my.mp3',
+          'y': 'assets/sounds/mi.mp3',
         }
       }
     ],
