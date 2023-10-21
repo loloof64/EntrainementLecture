@@ -15,13 +15,20 @@ class SimpleSoundListeningScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var children = <Widget>[];
 
-    final combinations = soundData['combinations'] as Map<String, String>;
+    final combinations =
+        soundData['combinations'] as List<Map<String, dynamic>>;
+    final variation = combinations[0];
+    final base = variation['base'] ?? '';
+    final associations = variation['associations'] ?? <String, String>{};
 
-    for (var combinationLetter in combinations.keys) {
+    for (var combination in associations.entries) {
+      final combinationLetter = combination.key;
+      final soundPath = combination.value;
+      final caption = '$base$combinationLetter';
       children.add(
         ListeningButtonWidget(
-          caption: '$soundElement$combinationLetter',
-          soundAssetPath: combinations[combinationLetter]!,
+          caption: caption,
+          soundAssetPath: soundPath,
         ),
       );
     }

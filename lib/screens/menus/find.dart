@@ -3,6 +3,7 @@ import 'package:entrainement_lecture/misc/generate_exercise.dart';
 import 'package:entrainement_lecture/misc/sound_mappings.dart';
 import 'package:entrainement_lecture/screens/finding/exercise_page.dart';
 import 'package:entrainement_lecture/screens/menus/find_alphabet.dart';
+import 'package:entrainement_lecture/screens/menus/find_sound.dart';
 import 'package:entrainement_lecture/widgets/menu_button.dart';
 import 'package:flutter/material.dart';
 
@@ -54,7 +55,9 @@ class FindMenuScreen extends StatelessWidget {
           MenuButtonWidget(
             caption: 'Sons',
             soundAssetPath: 'assets/sounds/son.mp3',
-            onNavigation: () {},
+            onNavigation: () {
+              goToPage(const FindSoundMenuScreen(), context);
+            },
           ),
           const SizedBox(
             height: menusVerticalGap,

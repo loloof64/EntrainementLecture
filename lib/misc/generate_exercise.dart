@@ -79,6 +79,105 @@ Exercise generateExerciseForAlphabetOrWords({
   ));
 }
 
+Exercise generateExerciseForSyllabeSounds({
+  // Number of answerButtons to generate
+  required int purposesCount,
+  // Input sounds to choose in
+  required List<Map<String, Map<String, dynamic>>> inputSounds,
+}) {
+  Random random = Random();
+
+  // merging all sounds into a single map
+  var mergedInputSounds = <String, Map<String, dynamic>>{};
+  for (var inputs in inputSounds) {
+    for (var soundDefinition in inputs.keys) {
+      mergedInputSounds[soundDefinition] = inputs[soundDefinition]!;
+    }
+  }
+
+  // Ensuring we don't overflow the mergedInputSounds size
+  final int answerPurposesCount = purposesCount < mergedInputSounds.length
+      ? purposesCount
+      : mergedInputSounds.length;
+
+  // Selecting sound
+  final selectedSoundBaseIndex = random.nextInt(mergedInputSounds.length);
+  final selectedSoundBase =
+      mergedInputSounds.entries.elementAt(selectedSoundBaseIndex);
+  final selectedSoundCombinations =
+      selectedSoundBase.value['combinations']! as List<dynamic>;
+  final selectedCombinationIndex =
+      random.nextInt(selectedSoundCombinations.length);
+  final selectedCombination =
+      selectedSoundCombinations[selectedCombinationIndex]
+          as Map<String, dynamic>;
+  final baseSound = selectedCombination['base']!;
+  final isReversedCombination =
+      selectedCombination['reversed_combination'] ?? false;
+  final combinationAssociations =
+      selectedCombination['associations'] as Map<String, String>;
+  final selectedSoundIndex = random.nextInt(combinationAssociations.length);
+  final selectedSound =
+      combinationAssociations.entries.elementAt(selectedSoundIndex);
+  final selectedSoundVariant = selectedSound.key;
+  final selectedSoundCaption = isReversedCombination
+      ? '$selectedSoundVariant$baseSound'
+      : '$baseSound$selectedSoundVariant';
+  final selectedSoundPath = selectedSound.value;
+
+  // Selecting possibilities
+  var possibilities = <String, bool>{};
+  var alreadySelectedSoundBases = <String>[];
+  do {
+    final tempSoundBaseIndex = random.nextInt(mergedInputSounds.length);
+    final tempSoundBase =
+        mergedInputSounds.entries.elementAt(tempSoundBaseIndex);
+    if (alreadySelectedSoundBases.contains(tempSoundBase.key)) continue;
+    alreadySelectedSoundBases.add(tempSoundBase.key);
+    final tempSelectedSoundCombinations =
+        tempSoundBase.value['combinations']! as List<dynamic>;
+    final tempSelectedCombinationIndex =
+        random.nextInt(tempSelectedSoundCombinations.length);
+    final tempSelectedCombination =
+        tempSelectedSoundCombinations[tempSelectedCombinationIndex]
+            as Map<String, dynamic>;
+    final tempBaseSound = tempSelectedCombination['base']!;
+    final tempIsReversedCombination =
+        tempSelectedCombination['reversed_combination'] ?? false;
+    final tempCombinationAssociations =
+        tempSelectedCombination['associations'] as Map<String, String>;
+    final tempSelectedSoundIndex =
+        random.nextInt(tempCombinationAssociations.length);
+    final tempSelectedSound =
+        tempCombinationAssociations.entries.elementAt(tempSelectedSoundIndex);
+    final tempSelectedSoundVariant = tempSelectedSound.key;
+  final tempSelectedSoundCaption = tempIsReversedCombination
+      ? '$tempSelectedSoundVariant$tempBaseSound'
+      : '$tempBaseSound$tempSelectedSoundVariant';
+    final isAnExpectedAnswer = selectedSoundCaption == tempSelectedSoundCaption;
+
+    possibilities[tempSelectedSoundCaption] = isAnExpectedAnswer;
+  } while (possibilities.entries.length < answerPurposesCount);
+
+  // Remplacing an answer with the expected sound if needed
+  final hasTheExpectedAnswer =
+      possibilities.entries.any((element) => element.value);
+  if (!hasTheExpectedAnswer) {
+    int indexToReplace = random.nextInt(possibilities.length);
+
+    final keyToReplace = possibilities.entries.elementAt(indexToReplace).key;
+    possibilities.remove(keyToReplace);
+
+    possibilities.addAll({selectedSoundCaption: true});
+  }
+
+  return shuffleExercise(Exercise(
+    soundToFindString: selectedSoundCaption,
+    soundToFindPath: selectedSoundPath,
+    possibilities: possibilities,
+  ));
+}
+
 Exercise shuffleExercise(Exercise original) {
   Random random = Random();
   var length = original.possibilities.length;
