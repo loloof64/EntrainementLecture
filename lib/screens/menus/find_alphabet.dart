@@ -1,8 +1,7 @@
 import 'package:entrainement_lecture/misc/commons.dart';
 import 'package:entrainement_lecture/misc/generate_exercise.dart';
 import 'package:entrainement_lecture/misc/sound_mappings.dart';
-import 'package:entrainement_lecture/screens/exercise_page.dart';
-import 'package:entrainement_lecture/screens/finding/answer_summary.dart';
+import 'package:entrainement_lecture/screens/finding/exercise_page.dart';
 import 'package:entrainement_lecture/widgets/menu_button.dart';
 import 'package:flutter/material.dart';
 
@@ -13,31 +12,20 @@ class FindAlphabetMenuScreen extends StatelessWidget {
     final exercise = generateExerciseForAlphabetOrWords(
         inputSounds: [voyels], purposesCount: 4);
     final destinationScreen = ExercisePageWidget(
-      soundToFindPath: exercise.soundToFindPath,
-      possibilities: exercise.possibilities,
-      handleAnswer: (userAnswer, expectedAnswers) => handleAnswer(
-        context: context,
-        userAnswer: userAnswer,
-        correctAnswers: expectedAnswers,
-        onNewExerciseRequest: () {
-          Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (ctx2) {
-              return AnswerSummaryScreenWidget(
-                userAnswer: userAnswer,
-                expectedAnswersChoices: expectedAnswers,
-                onNewExerciseRequest: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (ctx2) => _generateVoyelsExercisePage(context),
-                    ),
-                  );
-                },
-              );
-            }),
-          );
-        },
-      ),
-    );
+        soundToFindPath: exercise.soundToFindPath,
+        possibilities: exercise.possibilities,
+        handleAnswer: (userAnswer, expectedAnswers) => handleAnswer(
+              context: context,
+              userAnswer: userAnswer,
+              correctAnswers: expectedAnswers,
+              onNewExerciseRequest: () {
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (ctx2) => _generateVoyelsExercisePage(context),
+                  ),
+                );
+              },
+            ));
     return destinationScreen;
   }
 
@@ -53,19 +41,9 @@ class FindAlphabetMenuScreen extends StatelessWidget {
         correctAnswers: expectedAnswers,
         onNewExerciseRequest: () {
           Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (ctx2) {
-              return AnswerSummaryScreenWidget(
-                userAnswer: userAnswer,
-                expectedAnswersChoices: expectedAnswers,
-                onNewExerciseRequest: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (ctx2) => _generateConsonsExercisePage(context),
-                    ),
-                  );
-                },
-              );
-            }),
+            MaterialPageRoute(
+              builder: (ctx2) => _generateConsonsExercisePage(context),
+            ),
           );
         },
       ),
@@ -85,19 +63,9 @@ class FindAlphabetMenuScreen extends StatelessWidget {
         correctAnswers: expectedAnswers,
         onNewExerciseRequest: () {
           Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (ctx2) {
-              return AnswerSummaryScreenWidget(
-                userAnswer: userAnswer,
-                expectedAnswersChoices: expectedAnswers,
-                onNewExerciseRequest: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (ctx2) => _generateMixedAlphabetExercisePage(context),
-                    ),
-                  );
-                },
-              );
-            }),
+            MaterialPageRoute(
+              builder: (ctx2) => _generateMixedAlphabetExercisePage(context),
+            ),
           );
         },
       ),
@@ -119,10 +87,9 @@ class FindAlphabetMenuScreen extends StatelessWidget {
             caption: 'Voyelles',
             soundAssetPath: 'assets/sounds/voyelle.mp3',
             onNavigation: () {
-              final destinationScreen = _generateVoyelsExercisePage(context);
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (ctx2) => destinationScreen,
+                  builder: (ctx2) => _generateVoyelsExercisePage(context),
                 ),
               );
             },
@@ -134,10 +101,9 @@ class FindAlphabetMenuScreen extends StatelessWidget {
             caption: 'Consonnes',
             soundAssetPath: 'assets/sounds/consonne.mp3',
             onNavigation: () {
-              final destinationScreen = _generateConsonsExercisePage(context);
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (ctx2) => destinationScreen,
+                  builder: (ctx2) => _generateConsonsExercisePage(context),
                 ),
               );
             },
@@ -149,11 +115,10 @@ class FindAlphabetMenuScreen extends StatelessWidget {
             caption: 'Mixtes',
             soundAssetPath: 'assets/sounds/mixte.mp3',
             onNavigation: () {
-              final destinationScreen =
-                  _generateMixedAlphabetExercisePage(context);
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (ctx2) => destinationScreen,
+                  builder: (ctx2) =>
+                      _generateMixedAlphabetExercisePage(context),
                 ),
               );
             },

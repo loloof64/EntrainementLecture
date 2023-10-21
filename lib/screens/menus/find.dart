@@ -1,8 +1,7 @@
 import 'package:entrainement_lecture/misc/commons.dart';
 import 'package:entrainement_lecture/misc/generate_exercise.dart';
 import 'package:entrainement_lecture/misc/sound_mappings.dart';
-import 'package:entrainement_lecture/screens/exercise_page.dart';
-import 'package:entrainement_lecture/screens/finding/answer_summary.dart';
+import 'package:entrainement_lecture/screens/finding/exercise_page.dart';
 import 'package:entrainement_lecture/screens/menus/find_alphabet.dart';
 import 'package:entrainement_lecture/widgets/menu_button.dart';
 import 'package:flutter/material.dart';
@@ -22,19 +21,9 @@ class FindMenuScreen extends StatelessWidget {
         correctAnswers: expectedAnswers,
         onNewExerciseRequest: () {
           Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (ctx2) {
-              return AnswerSummaryScreenWidget(
-                userAnswer: userAnswer,
-                expectedAnswersChoices: expectedAnswers,
-                onNewExerciseRequest: () {
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(
-                      builder: (ctx2) => _generateWordsExercisePage(context),
-                    ),
-                  );
-                },
-              );
-            }),
+            MaterialPageRoute(
+              builder: (ctx2) => _generateWordsExercisePage(context),
+            ),
           );
         },
       ),
@@ -74,10 +63,9 @@ class FindMenuScreen extends StatelessWidget {
             caption: 'Mots',
             soundAssetPath: 'assets/sounds/mot.mp3',
             onNavigation: () {
-              final destinationScreen = _generateWordsExercisePage(context);
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (ctx2) => destinationScreen,
+                  builder: (ctx2) => _generateWordsExercisePage(context),
                 ),
               );
             },
