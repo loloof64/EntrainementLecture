@@ -3,8 +3,8 @@ import 'package:entrainement_lecture/misc/sound_mappings.dart';
 import 'package:entrainement_lecture/widgets/listening_button.dart';
 import 'package:flutter/material.dart';
 
-class WordsListeningScreen extends StatelessWidget {
-  const WordsListeningScreen({super.key});
+class ListenWordsScreen extends StatelessWidget {
+  const ListenWordsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

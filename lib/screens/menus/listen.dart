@@ -1,7 +1,7 @@
 import 'package:entrainement_lecture/misc/commons.dart';
 import 'package:entrainement_lecture/screens/listening/words.dart';
-import 'package:entrainement_lecture/screens/menus/alphabet.dart';
-import 'package:entrainement_lecture/screens/menus/sounds.dart';
+import 'package:entrainement_lecture/screens/menus/listen_alphabet.dart';
+import 'package:entrainement_lecture/screens/menus/listen_sounds.dart';
 import 'package:entrainement_lecture/widgets/menu_button.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +22,7 @@ class ListenMenuScreen extends StatelessWidget {
             caption: 'Alphabet',
             soundAssetPath: 'assets/sounds/alphabet.mp3',
             onNavigation: () {
-              goToPage(const AlphabetMenuScreen(), context);
+              goToPage(const ListenAlphabetMenuScreen(), context);
             },
           ),
           const SizedBox(
@@ -32,7 +32,7 @@ class ListenMenuScreen extends StatelessWidget {
             caption: 'Sons',
             soundAssetPath: 'assets/sounds/son.mp3',
             onNavigation: () {
-              goToPage(const SoundsMenuScreen(), context);
+              goToPage(const ListenSoundsMenuScreen(), context);
             },
           ),
           const SizedBox(
@@ -42,7 +42,7 @@ class ListenMenuScreen extends StatelessWidget {
             caption: 'Mots',
             soundAssetPath: 'assets/sounds/mot.mp3',
             onNavigation: () {
-              goToPage(const WordsListeningScreen(), context);
+              goToPage(const ListenWordsScreen(), context);
             },
           ),
         ],

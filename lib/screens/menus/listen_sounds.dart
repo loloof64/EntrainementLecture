@@ -1,43 +1,37 @@
 import 'package:entrainement_lecture/misc/commons.dart';
-import 'package:entrainement_lecture/screens/listening/consons.dart';
-import 'package:entrainement_lecture/screens/listening/voyels.dart';
+import 'package:entrainement_lecture/screens/menus/listen_complex_sounds.dart';
+import 'package:entrainement_lecture/screens/menus/listen_simple_sounds.dart';
 import 'package:entrainement_lecture/widgets/menu_button.dart';
 import 'package:flutter/material.dart';
 
-class AlphabetMenuScreen extends StatelessWidget {
-  const AlphabetMenuScreen({super.key});
+class ListenSoundsMenuScreen extends StatelessWidget {
+  const ListenSoundsMenuScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Ecouter l\'alphabet'),
+        title: const Text('Ecouter les sons'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           MenuButtonWidget(
-            caption: 'Voyelles',
-            soundAssetPath: 'assets/sounds/voyelle.mp3',
+            caption: 'Simples',
+            soundAssetPath: 'assets/sounds/simple.mp3',
             onNavigation: () {
-              goToPage(
-                const VoyelsListeningScreen(),
-                context,
-              );
+              goToPage(const SimpleSoundsMenuScreen(), context);
             },
           ),
           const SizedBox(
             height: menusVerticalGap,
           ),
           MenuButtonWidget(
-            caption: 'Consonnes',
-            soundAssetPath: 'assets/sounds/consonne.mp3',
+            caption: 'Complexes',
+            soundAssetPath: 'assets/sounds/complexe.mp3',
             onNavigation: () {
-              goToPage(
-                const ConsonsListeningScreen(),
-                context,
-              );
+              goToPage(const ComplexSoundsMenuScreen(), context);
             },
           ),
         ],

@@ -1,4 +1,5 @@
 import 'package:entrainement_lecture/misc/commons.dart';
+import 'package:entrainement_lecture/screens/menus/find.dart';
 import 'package:entrainement_lecture/screens/menus/listen.dart';
 import 'package:entrainement_lecture/widgets/menu_button.dart';
 import 'package:flutter/material.dart';
@@ -55,7 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
             MenuButtonWidget(
               caption: 'Trouver',
               soundAssetPath: 'assets/sounds/trouver.mp3',
-              onNavigation: () {},
+              onNavigation: () {
+                goToPage(const FindMenuScreen(), context);
+              },
             ),
           ],
         ),
