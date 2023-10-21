@@ -15,7 +15,7 @@ void goToPage(Widget screenWidget, BuildContext context) {
 
 void handleAnswer({
   required String userAnswer,
-  required List<String> correctAnswers,
+  required String correctAnswer,
   required void Function() onNewExerciseRequest,
   required BuildContext context,
 }) {
@@ -23,7 +23,7 @@ void handleAnswer({
     MaterialPageRoute(builder: (ctx2) {
       return AnswerSummaryScreenWidget(
         userAnswer: userAnswer,
-        expectedAnswersChoices: correctAnswers,
+        expectedAnswer: correctAnswer,
         onNewExerciseRequest: onNewExerciseRequest,
       );
     }),

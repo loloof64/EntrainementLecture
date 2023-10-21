@@ -14,9 +14,9 @@ class FindingSoundWidget extends StatelessWidget {
 
   /*
   caption is the caption of the selected button.
-  expectedAnswers is the list of possible answers.
+  expectedAnswer is the expected answers.
   */
-  final void Function(String caption, List<String> expectedAnswers)
+  final void Function(String caption, String expectedAnswer)
       handleAnswer;
 
   const FindingSoundWidget({

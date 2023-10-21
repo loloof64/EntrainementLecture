@@ -10,9 +10,9 @@ class FindingSoundAnsweringZoneWidget extends StatelessWidget {
 
   /*
   caption is the caption of the selected button.
-  expectedAnswers is the list of possible answers.
+  expectedAnswers is the expected answer.
   */
-  final void Function(String caption, List<String> expectedAnswers)
+  final void Function(String caption, String expectedAnswer)
       handleAnswer;
 
   const FindingSoundAnsweringZoneWidget({
@@ -24,13 +24,11 @@ class FindingSoundAnsweringZoneWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var children = <Widget>[];
-    final expectedAnswers = possibilities.entries
-        .where((element) => element.value)
-        .map((element) => element.key)
-        .toList();
+    final expectedAnswer = possibilities.entries
+        .firstWhere((element) => element.value).key;
     for (var caption in possibilities.keys) {
       children.add(ElevatedButton(
-        onPressed: () => handleAnswer(caption, expectedAnswers),
+        onPressed: () => handleAnswer(caption, expectedAnswer),
         child: Text(caption),
       ));
     }

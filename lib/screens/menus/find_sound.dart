@@ -14,10 +14,10 @@ class FindSoundMenuScreen extends StatelessWidget {
     final destinationScreen = ExercisePageWidget(
         soundToFindPath: exercise.soundToFindPath,
         possibilities: exercise.possibilities,
-        handleAnswer: (userAnswer, expectedAnswers) => handleAnswer(
+        handleAnswer: (userAnswer, expectedAnswer) => handleAnswer(
               context: context,
               userAnswer: userAnswer,
-              correctAnswers: expectedAnswers,
+              correctAnswer: expectedAnswer,
               onNewExerciseRequest: () {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
@@ -36,10 +36,10 @@ class FindSoundMenuScreen extends StatelessWidget {
     final destinationScreen = ExercisePageWidget(
         soundToFindPath: exercise.soundToFindPath,
         possibilities: exercise.possibilities,
-        handleAnswer: (userAnswer, expectedAnswers) => handleAnswer(
+        handleAnswer: (userAnswer, expectedAnswer) => handleAnswer(
               context: context,
               userAnswer: userAnswer,
-              correctAnswers: expectedAnswers,
+              correctAnswer: expectedAnswer,
               onNewExerciseRequest: () {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
@@ -58,10 +58,10 @@ class FindSoundMenuScreen extends StatelessWidget {
     final destinationScreen = ExercisePageWidget(
         soundToFindPath: exercise.soundToFindPath,
         possibilities: exercise.possibilities,
-        handleAnswer: (userAnswer, expectedAnswers) => handleAnswer(
+        handleAnswer: (userAnswer, expectedAnswer) => handleAnswer(
               context: context,
               userAnswer: userAnswer,
-              correctAnswers: expectedAnswers,
+              correctAnswer: expectedAnswer,
               onNewExerciseRequest: () {
                 Navigator.of(context).pushReplacement(
                   MaterialPageRoute(
