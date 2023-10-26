@@ -14,3 +14,11 @@ Don't forget to add keystore file to the folder android/app, as well as a key.pr
 * keyAlias
 * keyPassword
 * storeFile
+
+#### AppBundle
+
+Run command
+
+```
+flutter build appbundle 
+```
