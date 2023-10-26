@@ -29,7 +29,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace "com.loloof64.android.entrainementlecture.entrainement_lecture"
+    namespace "com.loloof64.android.entrainement_lecture"
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
