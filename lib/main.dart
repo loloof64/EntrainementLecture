@@ -32,6 +32,33 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  void _showAboutDialog() {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (ctx2) {
+          return AlertDialog(
+            title: const Text("À propos"),
+            content: const Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Application d\'entraînement à la lecture'),
+                Text('L. Bernabé (2023)'),
+                SizedBox(height: 20,),
+                Text('Sons: F. Fucci'),
+                Text('Icône: F. Fucci'),
+              ],
+            ),
+            actions: [
+              TextButton(onPressed: () {
+                Navigator.of(context).pop();
+              }, child: const Text('Valider'),),
+            ],
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,6 +86,13 @@ class _MyHomePageState extends State<MyHomePage> {
               onNavigation: () {
                 goToPage(const FindMenuScreen(), context);
               },
+            ),
+            const SizedBox(
+              height: menusVerticalGap,
+            ),
+            ElevatedButton(
+              onPressed: _showAboutDialog,
+              child: const Text('À propos'),
             ),
           ],
         ),
