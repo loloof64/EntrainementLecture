@@ -1,6 +1,7 @@
 import 'package:entrainement_lecture/misc/commons.dart';
 import 'package:entrainement_lecture/screens/menus/find.dart';
 import 'package:entrainement_lecture/screens/menus/listen.dart';
+import 'package:entrainement_lecture/widgets/manual.dart';
 import 'package:entrainement_lecture/widgets/menu_button.dart';
 import 'package:flutter/material.dart';
 
@@ -32,6 +33,26 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  void _showManualDialog() {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (ctx2) {
+          return AlertDialog(
+            title: const Text("Guide"),
+            content: const ManualWidget(),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('Valider'),
+              ),
+            ],
+          );
+        });
+  }
+
   void _showAboutDialog() {
     showDialog(
         context: context,
@@ -45,15 +66,20 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Text('Application d\'entraînement à la lecture'),
                 Text('L. Bernabé (2023)'),
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
                 Text('Sons: F. Fucci'),
                 Text('Icône: F. Fucci'),
               ],
             ),
             actions: [
-              TextButton(onPressed: () {
-                Navigator.of(context).pop();
-              }, child: const Text('Valider'),),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('Valider'),
+              ),
             ],
           );
         });
@@ -86,6 +112,13 @@ class _MyHomePageState extends State<MyHomePage> {
               onNavigation: () {
                 goToPage(const FindMenuScreen(), context);
               },
+            ),
+            const SizedBox(
+              height: menusVerticalGap,
+            ),
+            ElevatedButton(
+              onPressed: _showManualDialog,
+              child: const Text('Guide'),
             ),
             const SizedBox(
               height: menusVerticalGap,
