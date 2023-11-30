@@ -1,4 +1,3 @@
-import 'package:entrainement_lecture/misc/commons.dart';
 import 'package:entrainement_lecture/misc/sound_engine.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
