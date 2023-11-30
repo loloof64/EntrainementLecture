@@ -35,20 +35,28 @@ class _AnswerSummaryScreenWidgetState extends State<AnswerSummaryScreenWidget> {
   @override
   Widget build(BuildContext context) {
     final hasFoundAnswer = widget.expectedAnswer.contains(widget.userAnswer);
-    final headerWidgetChildren = hasFoundAnswer
-        ? const <Widget>[
-            FaIcon(
+    final answerWidgetChildren = hasFoundAnswer
+        ? <Widget>[
+            const FaIcon(
               FontAwesomeIcons.circleCheck,
               color: Colors.green,
             ),
-            Text('Bien joué'),
+            Text(widget.expectedAnswer),
           ]
-        : const <Widget>[
-            FaIcon(
+        : <Widget>[
+            const FaIcon(
               FontAwesomeIcons.circleXmark,
               color: Colors.red,
             ),
-            Text('C\'est incorrect'),
+            Text(widget.userAnswer),
+            const SizedBox(
+              width: 10.0,
+            ),
+            const FaIcon(
+              FontAwesomeIcons.circleCheck,
+              color: Colors.green,
+            ),
+            Text(widget.expectedAnswer),
           ];
 
     return Scaffold(
@@ -63,20 +71,10 @@ class _AnswerSummaryScreenWidgetState extends State<AnswerSummaryScreenWidget> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: headerWidgetChildren,
+              children: answerWidgetChildren,
             ),
             const SizedBox(
-              height: menusVerticalGap,
-            ),
-            Text('Votre réponse : ${widget.userAnswer}'),
-            if (!hasFoundAnswer)
-              const SizedBox(
-                height: menusVerticalGap,
-              ),
-            if (!hasFoundAnswer)
-              Text('Réponse attendue: ${widget.expectedAnswer}'),
-            const SizedBox(
-              height: menusVerticalGap,
+              height: 20.0,
             ),
             ElevatedButton(
               onPressed: widget.onNewExerciseRequest,
