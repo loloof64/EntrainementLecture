@@ -564,7 +564,6 @@ const complexSounds = <String, Map<String, dynamic>>{
         'base': 'ai',
         'reversed_combination': true,
         'associations': {
-          'c': 'assets/sounds/sè.mp3',
           'p': 'assets/sounds/pè.mp3',
           't': 'assets/sounds/tè.mp3',
           'r': 'assets/sounds/rè.mp3',
