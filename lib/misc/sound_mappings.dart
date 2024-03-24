@@ -678,7 +678,6 @@ const complexSounds = <String, Map<String, dynamic>>{
         'associations': {
           'c': 'assets/sounds/sier.mp3',
           'p': 'assets/sounds/pier.mp3',
-          's': 'assets/sounds/sier.mp3',
           'r': 'assets/sounds/rier.mp3'
         }
       },
